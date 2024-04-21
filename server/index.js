@@ -12,7 +12,11 @@ import dalleRoutes from "./routes/dalleRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+   origin: '*',//(https://your-client-app.com)
+   };
+app.use(cors(corsOptions));
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
